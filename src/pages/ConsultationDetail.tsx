@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { consultations, commentsData, wordCloudData, STANCE_COLORS, STANCE_BG_COLORS } from '@/data/mockData';
 import { cn } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
+import ViewFullTextModal from '@/components/ViewFullTextModal';
 
 const ConsultationDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,6 +18,8 @@ const ConsultationDetail = () => {
   const [filter, setFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [wordCloudFilter, setWordCloudFilter] = useState('All');
+  const [selectedComment, setSelectedComment] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const consultationId = parseInt(id || '1');
   const consultation = consultations.find(c => c.id === consultationId);
@@ -260,7 +263,35 @@ const ConsultationDetail = () => {
                         </Badge>
                       ))}
                     </div>
-                    <Button variant="outline" size="sm">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => {
+                        setSelectedComment({
+                          ...comment,
+                          fullText: `This is the complete submission text from ${comment.submitter}. 
+
+${comment.summary}
+
+Additional detailed analysis and recommendations:
+
+The proposed amendments to the Companies Act represent a significant shift in corporate governance frameworks. Our analysis indicates several areas of concern that require careful consideration:
+
+1. Implementation Challenges: The proposed timeline for compliance may be too aggressive for smaller companies, particularly those in emerging sectors.
+
+2. Cost Implications: The additional reporting requirements will impose substantial compliance costs, potentially affecting the competitiveness of Indian companies in global markets.
+
+3. Regulatory Overlap: There appears to be some overlap with existing SEBI regulations, which could create confusion and compliance burden.
+
+4. Stakeholder Impact: The amendments will significantly impact various stakeholders including shareholders, creditors, and employees.
+
+We recommend a phased implementation approach with adequate transition periods and clear guidance from the regulatory authorities.
+
+Thank you for the opportunity to provide feedback on this important legislative initiative.`
+                        });
+                        setIsModalOpen(true);
+                      }}
+                    >
                       <Eye className="h-3 w-3 mr-1" />
                       View Full Text
                     </Button>
@@ -416,6 +447,15 @@ const ConsultationDetail = () => {
           </div>
         </TabsContent>
       </Tabs>
+
+      <ViewFullTextModal 
+        comment={selectedComment}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedComment(null);
+        }}
+      />
     </div>
   );
 };

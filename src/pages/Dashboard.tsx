@@ -50,23 +50,23 @@ const Dashboard = () => {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header Section */}
-      <div className="bg-gradient-primary rounded-xl p-8 text-primary-foreground">
+      <div className="bg-gradient-secondary rounded-xl p-8 border text-foreground">
         <h1 className="text-3xl font-bold mb-2">Project Saaransh Dashboard</h1>
-        <p className="text-primary-foreground/80 text-lg">
+        <p className="text-muted-foreground text-lg">
           AI-powered sentiment analysis for MCA e-consultation feedback
         </p>
         <div className="flex flex-wrap gap-4 mt-6">
-          <div className="bg-primary-foreground/10 rounded-lg p-4 backdrop-blur-sm">
-            <div className="text-2xl font-bold">{totalSubmissions}</div>
-            <div className="text-sm text-primary-foreground/80">Total Submissions</div>
+          <div className="bg-card rounded-lg p-4 border">
+            <div className="text-2xl font-bold text-primary">{totalSubmissions}</div>
+            <div className="text-sm text-muted-foreground">Total Submissions</div>
           </div>
-          <div className="bg-primary-foreground/10 rounded-lg p-4 backdrop-blur-sm">
-            <div className="text-2xl font-bold">{activeConsultations}</div>
-            <div className="text-sm text-primary-foreground/80">Active Consultations</div>
+          <div className="bg-card rounded-lg p-4 border">
+            <div className="text-2xl font-bold text-primary">{activeConsultations}</div>
+            <div className="text-sm text-muted-foreground">Active Consultations</div>
           </div>
-          <div className="bg-primary-foreground/10 rounded-lg p-4 backdrop-blur-sm">
-            <div className="text-2xl font-bold">{completedConsultations}</div>
-            <div className="text-sm text-primary-foreground/80">Completed Analyses</div>
+          <div className="bg-card rounded-lg p-4 border">
+            <div className="text-2xl font-bold text-primary">{completedConsultations}</div>
+            <div className="text-sm text-muted-foreground">Completed Analyses</div>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@ const Dashboard = () => {
         </Button>
         
         <Button asChild className="h-auto p-6 justify-start" variant="outline">
-          <Link to="/settings" className="flex items-center space-x-3">
+          <Link to="/reports" className="flex items-center space-x-3">
             <FileText className="h-6 w-6" />
             <div>
               <div className="font-semibold">Export Reports</div>

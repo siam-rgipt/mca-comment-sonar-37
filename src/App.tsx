@@ -9,6 +9,8 @@ import Dashboard from "./pages/Dashboard";
 import ConsultationDetail from "./pages/ConsultationDetail";
 import TrendAnalysis from "./pages/TrendAnalysis";
 import Analytics from "./pages/Analytics";
+import StakeholderAnalytics from "./pages/StakeholderAnalytics";
+import ExportReports from "./pages/ExportReports";
 import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
 import Authorizations from "./pages/Authorizations";
@@ -72,6 +74,20 @@ const AppRoutes = () => (
                 </Layout>
               </ProtectedRoute>
             } />
+    <Route path="/stakeholderanalytics" element={
+      <ProtectedRoute>
+        <Layout>
+          <StakeholderAnalytics />
+        </Layout>
+      </ProtectedRoute>
+    } />
+    <Route path="/reports" element={
+      <ProtectedRoute>
+        <Layout>
+          <ExportReports />
+        </Layout>
+      </ProtectedRoute>
+    } />
     <Route path="/settings" element={
       <ProtectedRoute>
         <Layout>

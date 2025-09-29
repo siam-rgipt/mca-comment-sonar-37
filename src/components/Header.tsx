@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, Bell, Menu, X, User, Settings, Shield, LogOut, MapPin } from 'lucide-react';
+import { Search, Bell, Menu, X, User, Settings, Shield, LogOut, MapPin, Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -59,12 +60,27 @@ const Header = ({ toggleSidebar, isSidebarOpen }: HeaderProps) => {
           alt="MCA Emblem" 
           className="h-10 mr-2 sm:mr-4"
         />
-        <h1 className="text-lg sm:text-xl font-semibold text-slate-800">
-          Project Saaransh
-        </h1>
+        <div className="flex flex-col">
+          <h1 className="text-lg sm:text-xl font-semibold text-slate-800">
+            Project Saaransh
+          </h1>
+          <p className="text-xs text-slate-600 hidden sm:block">
+            AI-powered sentiment analysis for MCA e-consultation feedback
+          </p>
+        </div>
       </div>
 
       <div className="flex items-center space-x-2 sm:space-x-5">
+        <Button 
+          onClick={() => navigate('/reports')}
+          variant="outline" 
+          size="sm"
+          className="hidden md:flex"
+        >
+          <Download className="h-4 w-4 mr-2" />
+          Export Reports
+        </Button>
+        
         <div className="hidden sm:block relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
           <input

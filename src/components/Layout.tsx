@@ -22,7 +22,6 @@ const Layout = ({ children }: LayoutProps) => {
       <Header
         toggleSidebar={toggleSidebar}
         isSidebarOpen={isSidebarOpen}
-        userSession={userSession}
       />
       
       <Sidebar
