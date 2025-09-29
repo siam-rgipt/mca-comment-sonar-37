@@ -48,68 +48,68 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="container-fluid space-y-6 sm:space-y-8 animate-fade-in">
       {/* Header Section */}
-      <div className="bg-gradient-secondary rounded-xl p-8 border text-foreground">
-        <h1 className="text-3xl font-bold mb-2">Project Saaransh Dashboard</h1>
-        <p className="text-muted-foreground text-lg">
+      <div className="bg-gradient-secondary rounded-xl p-6 sm:p-8 lg:p-10 border text-foreground hover-lift">
+        <h1 className="heading-responsive font-bold mb-2 sm:mb-4">Project Saaransh Dashboard</h1>
+        <p className="text-muted-foreground text-responsive mb-6 sm:mb-8">
           AI-powered sentiment analysis for MCA e-consultation feedback
         </p>
-        <div className="flex flex-wrap gap-4 mt-6">
-          <div className="bg-card rounded-lg p-4 border">
-            <div className="text-2xl font-bold text-primary">{totalSubmissions}</div>
-            <div className="text-sm text-muted-foreground">Total Submissions</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="bg-card rounded-lg p-4 sm:p-6 border interactive-card animate-stagger-1">
+            <div className="text-2xl sm:text-3xl font-bold text-primary mb-1">{totalSubmissions}</div>
+            <div className="text-sm sm:text-base text-muted-foreground">Total Submissions</div>
           </div>
-          <div className="bg-card rounded-lg p-4 border">
-            <div className="text-2xl font-bold text-primary">{activeConsultations}</div>
-            <div className="text-sm text-muted-foreground">Active Consultations</div>
+          <div className="bg-card rounded-lg p-4 sm:p-6 border interactive-card animate-stagger-2">
+            <div className="text-2xl sm:text-3xl font-bold text-primary mb-1">{activeConsultations}</div>
+            <div className="text-sm sm:text-base text-muted-foreground">Active Consultations</div>
           </div>
-          <div className="bg-card rounded-lg p-4 border">
-            <div className="text-2xl font-bold text-primary">{completedConsultations}</div>
-            <div className="text-sm text-muted-foreground">Completed Analyses</div>
+          <div className="bg-card rounded-lg p-4 sm:p-6 border interactive-card animate-stagger-3">
+            <div className="text-2xl sm:text-3xl font-bold text-primary mb-1">{completedConsultations}</div>
+            <div className="text-sm sm:text-base text-muted-foreground">Completed Analyses</div>
           </div>
         </div>
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Button asChild className="h-auto p-6 justify-start" variant="outline">
-          <Link to="/trends" className="flex items-center space-x-3">
-            <TrendingUp className="h-6 w-6" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 animate-slide-up">
+        <Button asChild className="h-auto p-6 sm:p-8 justify-start hover-lift animate-stagger-1" variant="outline">
+          <Link to="/trends" className="flex items-center space-x-3 sm:space-x-4">
+            <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
             <div>
-              <div className="font-semibold">Trend Analysis</div>
-              <div className="text-sm text-muted-foreground">View historical patterns</div>
+              <div className="font-semibold text-base sm:text-lg">Trend Analysis</div>
+              <div className="text-sm sm:text-base text-muted-foreground">View historical patterns</div>
             </div>
           </Link>
         </Button>
         
-        <Button asChild className="h-auto p-6 justify-start" variant="outline">
-          <Link to="/analytics" className="flex items-center space-x-3">
-            <Users className="h-6 w-6" />
+        <Button asChild className="h-auto p-6 sm:p-8 justify-start hover-lift animate-stagger-2" variant="outline">
+          <Link to="/analytics" className="flex items-center space-x-3 sm:space-x-4">
+            <Users className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
             <div>
-              <div className="font-semibold">Stakeholder Insights</div>
-              <div className="text-sm text-muted-foreground">Analyze stakeholder feedback</div>
+              <div className="font-semibold text-base sm:text-lg">Stakeholder Insights</div>
+              <div className="text-sm sm:text-base text-muted-foreground">Analyze stakeholder feedback</div>
             </div>
           </Link>
         </Button>
         
-        <Button asChild className="h-auto p-6 justify-start" variant="outline">
-          <Link to="/reports" className="flex items-center space-x-3">
-            <FileText className="h-6 w-6" />
+        <Button asChild className="h-auto p-6 sm:p-8 justify-start hover-lift animate-stagger-3" variant="outline">
+          <Link to="/reports" className="flex items-center space-x-3 sm:space-x-4">
+            <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
             <div>
-              <div className="font-semibold">Export Reports</div>
-              <div className="text-sm text-muted-foreground">Generate analysis reports</div>
+              <div className="font-semibold text-base sm:text-lg">Export Reports</div>
+              <div className="text-sm sm:text-base text-muted-foreground">Generate analysis reports</div>
             </div>
           </Link>
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 animate-scale-in">
         {/* Overall Sentiment Distribution */}
-        <Card>
+        <Card className="hover-lift animate-stagger-1">
           <CardHeader>
-            <CardTitle>Overall Sentiment Distribution</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-lg sm:text-xl">Overall Sentiment Distribution</CardTitle>
+            <CardDescription className="text-responsive">
               Sentiment analysis across all active consultations
             </CardDescription>
           </CardHeader>
@@ -133,11 +133,11 @@ const Dashboard = () => {
                 <Tooltip />
               </PieChart>
             </ResponsiveContainer>
-            <div className="flex flex-wrap justify-center gap-3 mt-4">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-4">
               {stanceDistribution.map((stance) => (
-                <div key={stance.name} className="flex items-center text-sm">
+                <div key={stance.name} className="flex items-center text-sm sm:text-base">
                   <span
-                    className="w-3 h-3 rounded-full mr-2"
+                    className="w-3 h-3 sm:w-4 sm:h-4 rounded-full mr-2 pulse-dot"
                     style={{ backgroundColor: stance.color }}
                   ></span>
                   <span className="text-muted-foreground">{stance.name}</span>
@@ -148,39 +148,44 @@ const Dashboard = () => {
         </Card>
 
         {/* Active Consultations */}
-        <Card>
+        <Card className="hover-lift animate-stagger-2">
           <CardHeader>
-            <CardTitle>Active Consultations</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-lg sm:text-xl">Active Consultations</CardTitle>
+            <CardDescription className="text-responsive">
               Current e-consultation processes and their status
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            {consultations.map((consultation) => (
-              <div key={consultation.id} className="border rounded-lg p-4 hover:bg-card-hover transition-colors">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-medium text-sm leading-relaxed pr-4">
+            {consultations.map((consultation, index) => (
+              <div 
+                key={consultation.id} 
+                className="border rounded-lg p-4 sm:p-5 interactive-card animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="font-medium text-sm sm:text-base leading-relaxed pr-4">
                     {consultation.title}
                   </h3>
-                  <Badge variant={getStatusBadgeVariant(consultation.status)} className="flex items-center gap-1 shrink-0">
+                  <Badge variant={getStatusBadgeVariant(consultation.status)} className="flex items-center gap-1 shrink-0 text-xs sm:text-sm">
                     {getStatusIcon(consultation.status)}
-                    {consultation.status}
+                    <span className="hidden sm:inline">{consultation.status}</span>
                   </Badge>
                 </div>
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
+                <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground mb-3">
                   <span>{consultation.submissions} submissions</span>
                   <span>Due: {consultation.endDate}</span>
                 </div>
-                <div className="mt-3 flex justify-between items-center">
-                  <div className="flex-1 bg-secondary rounded-full h-2 mr-3">
+                <div className="flex justify-between items-center">
+                  <div className="flex-1 bg-secondary rounded-full h-2 sm:h-3 mr-3">
                     <div
-                      className="bg-primary h-2 rounded-full transition-all"
+                      className="bg-primary h-2 sm:h-3 rounded-full transition-all duration-700 ease-out"
                       style={{ width: `${consultation.progress}%` }}
                     ></div>
                   </div>
-                  <Button asChild size="sm" variant="outline">
+                  <Button asChild size="sm" variant="outline" className="text-xs sm:text-sm">
                     <Link to={`/consultation/${consultation.id}`}>
-                      View Details
+                      <span className="hidden sm:inline">View Details</span>
+                      <span className="sm:hidden">View</span>
                     </Link>
                   </Button>
                 </div>
@@ -191,32 +196,36 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Activity */}
-      <Card>
+      <Card className="hover-lift animate-slide-up">
         <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-lg sm:text-xl">Recent Activity</CardTitle>
+          <CardDescription className="text-responsive">
             Latest submissions and analysis updates
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            {allComments.slice(0, 5).map((comment) => (
-              <div key={comment.id} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-card-hover transition-colors">
-                <div className="w-2 h-2 rounded-full bg-primary mt-2"></div>
-                <div className="flex-1 space-y-1">
+          <div className="space-y-3 sm:space-y-4">
+            {allComments.slice(0, 5).map((comment, index) => (
+              <div 
+                key={comment.id} 
+                className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg interactive-card animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-primary mt-2 pulse-dot"></div>
+                <div className="flex-1 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="font-medium text-sm">{comment.submitter}</span>
-                    <span className="text-xs text-muted-foreground">{comment.date}</span>
+                    <span className="font-medium text-sm sm:text-base">{comment.submitter}</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">{comment.date}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground line-clamp-2">
+                  <p className="text-sm sm:text-base text-muted-foreground line-clamp-2">
                     {comment.summary}
                   </p>
-                  <div className="flex items-center space-x-2">
-                    <Badge variant="outline" className="text-xs">
+                  <div className="flex items-center space-x-2 flex-wrap gap-1">
+                    <Badge variant="outline" className="text-xs sm:text-sm">
                       {comment.stakeholderType}
                     </Badge>
                     <Badge 
-                      className={`text-xs ${
+                      className={`text-xs sm:text-sm ${
                         comment.stance === 'Supportive' ? 'bg-success/10 text-success' :
                         comment.stance === 'Opposed' ? 'bg-destructive/10 text-destructive' :
                         comment.stance === 'Concerned' ? 'bg-warning/10 text-warning' :
